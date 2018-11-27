@@ -49,8 +49,8 @@ fun Canvas.drawLISNode(i : Int, scale : Float, paint : Paint) {
         val sc : Float = sc1.divideScale(j, lines)
         val hGap : Float = (2 * size) / (lines + 1)
         save()
-        translate(0f, -size/2 + hGap * (j + 1))
-        val ws : Float = size * 0.5f
+        translate(0f, -size + hGap * (j + 1))
+        val ws : Float = size * 0.5f * sc
         drawLine(-ws, 0f, ws, 0f, paint)
         restore()
     }
@@ -218,7 +218,7 @@ class LineInSquareView(ctx : Context) : View(ctx) {
         fun create(activity: Activity) : LineInSquareView {
             val view : LineInSquareView = LineInSquareView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
