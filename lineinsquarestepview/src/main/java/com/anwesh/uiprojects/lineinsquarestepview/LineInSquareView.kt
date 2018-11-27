@@ -163,4 +163,29 @@ class LineInSquareView(ctx : Context) : View(ctx) {
             return this
         }
     }
+
+    data class LineInSquare(var i : Int) {
+
+        private val root : LISNode = LISNode(0)
+
+        private var curr : LISNode = root
+
+        private var dir : Int = 1
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            root.draw(canvas, paint)
+        }
+
+        fun update(cb : (Int, Float) -> Unit) {
+            curr.update {i, scl ->
+                curr = curr.getNext(dir) {
+                    dir *= -1
+                }
+            }
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            curr.startUpdating(cb)
+        }
+    }
 }
