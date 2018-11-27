@@ -213,4 +213,12 @@ class LineInSquareView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineInSquareView {
+            val view : LineInSquareView = LineInSquareView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }
