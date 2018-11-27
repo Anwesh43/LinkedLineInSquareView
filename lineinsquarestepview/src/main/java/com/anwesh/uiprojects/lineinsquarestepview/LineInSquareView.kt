@@ -20,6 +20,8 @@ val scGap : Float = 0.05f
 val color : Int = Color.parseColor("#283593")
 val sizeFactor : Float = 2.5f
 val strokeFactor : Int = 120
+val DELAY : Long = 25
+
 fun Int.getInverse()  : Float = 1f / this
 
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.getInverse(), Math.max(0f, this - i * n.getInverse())) * n
@@ -101,7 +103,7 @@ class LineInSquareView(ctx : Context) : View(ctx) {
             if (animated) {
                 cb()
                 try {
-                    Thread.sleep(50)
+                    Thread.sleep(DELAY)
                     view.invalidate()
                 } catch (ex : Exception) {
 
